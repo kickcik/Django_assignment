@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>투두 프로젝트</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="{% url 'todo_list' %}">홈</a>
+        </div>
+        <div>
+            {% if request.user.is_authenticated %}
+                <div class="auth-info">
+                    {{ request.user.username }}
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button>로그아웃</button>
+                    </form>
+                </div>
+            {% else %}
+                <div class="guest-info">
+                    <a href="{% url 'signup' %}">회원가입</a>
+                    <a href="{% url 'login' %}">로그인</a>
+                </div>
+            {% endif %}
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+</body>
+</html>
