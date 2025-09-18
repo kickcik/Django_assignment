@@ -22,6 +22,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('todo/', todo_list_views.todo_list, name='todo_list'),
     path('todo/<int:todo_id>', todo_list_views.todo_info, name='todo_info'),
+    path('todo/create', todo_list_views.todo_create, name='todo_create'),
+    path('todo/<int:todo_id>/update', todo_list_views.todo_update, name='todo_update'),
+    path('todo/<int:todo_id>/delete/', todo_list_views.todo_delete, name='todo_delete'),
+
+    #auth
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup', users_views.sign_up, name='signup'),
     path('accounts/login', users_views.login, name='login'),
