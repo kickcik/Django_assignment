@@ -1,0 +1,58 @@
+/* base.css */
+
+/* 기본 레이아웃 */
+body, button {
+    font-family: "Do Hyeon", Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* 링크 스타일 */
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* nav 영역 */
+nav {
+    margin-bottom: 15px;
+}
+
+nav .auth-info {
+    text-align: right;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .guest-info {
+    display: flex;
+    justify-content: right;
+    font-size: 20px;
+}
+
+nav .guest-info a {
+    margin-left: 10px;
+}
+
+nav form button {
+    border: 0;
+    font-size: 20px;
+    background: none;
+    cursor: pointer;
+}

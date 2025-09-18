@@ -1,0 +1,163 @@
+/* style.css */
+body {
+    font-family: "Do Hyeon", Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    text-align: center;
+    padding: 10px;
+    margin: 5px 0;
+    background: #eaeaea;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+li:hover {
+    background: #d4d4d4;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* nav 영역 */
+nav {
+    margin-bottom: 15px;
+}
+
+nav .auth-info {
+    text-align: right;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .guest-info {
+    display: flex;
+    justify-content: right;
+    font-size: 20px;
+}
+
+nav .guest-info a {
+    margin-left: 10px;
+}
+
+nav form button {
+    border: 0;
+    font-size: 20px;
+    background: none;
+    cursor: pointer;
+}
+
+.btn-container {
+    text-align: right;
+    margin-bottom: 15px; /* 리스트와 간격 */
+}
+
+.btn-create {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-create:hover {
+    background-color: #45a049;
+}
+
+/* todo_list.css - 검색창 및 페이지네이션 스타일링 */
+
+/* 검색창 영역 */
+.search {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.search form {
+    display: inline-block;
+}
+
+.search input[type="text"] {
+    padding: 8px 12px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 6px 0 0 6px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.search input[type="text"]:focus {
+    border-color: #333;
+}
+
+.search button {
+    padding: 8px 16px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #fff;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.search button:hover {
+    background-color: #555;
+}
+
+/* 페이지네이션 영역 */
+.page {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.page a, .page span {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+    transition: all 0.2s ease-in-out;
+}
+
+.page a:hover {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.page span {
+    font-weight: bold;
+    background-color: #f0f0f0;
+    border-color: #bbb;
+    pointer-events: none; /* 클릭 불가 */
+}

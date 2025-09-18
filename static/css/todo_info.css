@@ -1,0 +1,93 @@
+body {
+    font-family: "Do Hyeon", Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.info {
+    margin-top: 20px;
+    padding: 15px;
+    background: #eaeaea;
+    border-radius: 8px;
+    line-height: 1.6;
+}
+
+.label {
+    font-weight: bold;
+    color: #555;
+}
+
+/* 버튼 컨테이너 */
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn-right {
+    display: flex;
+    gap: 10px; /* 버튼 사이 간격 */
+}
+
+/* 공통 버튼 스타일 */
+.btn-back {
+    display: inline-block;
+    padding: 10px 16px;
+    background-color: #333;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-edit {
+    display: inline-block;
+    padding: 10px 16px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-delete button {
+    padding: 10px 16px;
+    background-color: #dc3545; /* 빨간색 */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-back:hover {
+    background-color: #555;
+}
+
+.btn-edit:hover {
+    background-color: #0056b3;
+}
+
+.btn-delete button:hover {
+    background-color: #a71d2a; /* hover 시 더 진한 빨강 */
+}
+
