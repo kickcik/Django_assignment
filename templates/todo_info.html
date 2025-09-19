@@ -5,19 +5,19 @@
 {% endblock %}
 {% block content %}
 <div class="container">
-        <h1>{{ todo_list.id }}번 리스트</h1>
+        <h1>{{ object.id }}번 리스트</h1>
         <div class="info">
-            <p><span class="label">제목 :</span> {{ todo_list.title }}</p>
-            <p><span class="label">내용 :</span> {{ todo_list.description }}</p>
-            <p><span class="label">시작일 :</span> {{ todo_list.start_date }}</p>
-            <p><span class="label">종료일 :</span> {{ todo_list.end_date }}</p>
+            <p><span class="label">제목 :</span> {{ object.title }}</p>
+            <p><span class="label">내용 :</span> {{ object.description }}</p>
+            <p><span class="label">시작일 :</span> {{ object.start_date }}</p>
+            <p><span class="label">종료일 :</span> {{ object.end_date }}</p>
         </div>
 
         <div class="btn-container">
-            <a href="{% url 'todo_list' %}" class="btn-back">← 목록으로 돌아가기</a>
+            <a href="{% url 'todo:list' %}" class="btn-back">← 목록으로 돌아가기</a>
             <div class="btn-right">
-                <a href="{% url 'todo_update' todo_list.id %}" class="btn-edit">수정</a>
-                <form action="{% url 'todo_delete' todo_list.id %}" method="post" class="btn-delete">
+                <a href="{% url 'todo:update' object.id %}" class="btn-edit">수정</a>
+                <form action="{% url 'todo:delete' object.id %}" method="post" class="btn-delete">
                     {% csrf_token %}
                     <button>삭제</button>
                 </form>

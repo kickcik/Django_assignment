@@ -13,7 +13,7 @@
 <body>
     <nav>
         <div>
-            <a href="{% url 'todo_list' %}">홈</a>
+            <a href="{% url 'todo:list' %}">홈</a>
         </div>
         <div>
             {% if request.user.is_authenticated %}
