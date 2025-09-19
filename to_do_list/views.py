@@ -21,8 +21,8 @@ def todo_list(request):
     page_object = paginator.get_page(page)
 
     context = {
-        'todo_lists': todo_lists,
-        'page_object': page_object,
+        'object_list': page_object.object_list,
+        'page_obj': page_object,
     }
     return render(request, 'todo_list.html', context)
 
