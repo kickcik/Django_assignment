@@ -22,3 +22,18 @@ class ToDoList(models.Model):
     class Meta:
         verbose_name = '투두'
         verbose_name_plural = '투두 리스트'
+
+class Comment(models.Model):
+    todo = models.ForeignKey(ToDoList, on_delete=models.CASCADE, related_name='comments')
+    content = models.CharField('본문', max_length=255)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.todo.title} 댓글'
+
+    class Meta:
+        verbose_name = '댓글'
+        verbose_name_plural = '댓글목록'
+        ordering = ['-created_at', '-id']
