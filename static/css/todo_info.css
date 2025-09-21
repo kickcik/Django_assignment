@@ -69,6 +69,7 @@ h1 {
 }
 
 .btn-delete button {
+    all: unset;
     padding: 10px 16px;
     background-color: #dc3545; /* 빨간색 */
     color: white;
@@ -77,6 +78,9 @@ h1 {
     font-weight: bold;
     cursor: pointer;
     transition: background 0.3s;
+    display: inline-block;      /* 추가 */
+    line-height: 1.2;           /* a와 비슷하게 맞춤 */
+    text-align: center;
 }
 
 .btn-back:hover {
@@ -90,4 +94,125 @@ h1 {
 .btn-delete button:hover {
     background-color: #a71d2a; /* hover 시 더 진한 빨강 */
 }
+
+/* 댓글 컨테이너 */
+.custom-container {
+    max-width: 600px;
+    margin-top: 10px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* 댓글 제목 */
+.custom-container h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* 댓글 리스트 */
+#comment_wrapper {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+/* 댓글 리스트 아이템 둥근 사각형 */
+.comment-list-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;  /* 모서리 둥글게 */
+    background-color: #f9f9f9;
+}
+
+/* 작성자 및 관리 버튼 그룹 */
+.comment-list-item > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.comment-list-item p {
+    margin: 0;
+    color: #555;
+}
+
+/* 수정/삭제 버튼 그룹 */
+.a-group {
+    display: flex;
+    gap: 10px;
+}
+
+/* 댓글 수정/삭제 버튼 */
+.a-group button[type="button"] {
+    padding: 8px 14px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 6px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.a-group button[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+.a-group button[type="submit"] {
+    padding: 8px 14px;
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 6px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.a-group button[type="submit"]:hover {
+    background-color: #a71d2a;
+}
+
+/* 댓글 내용 */
+.comment-list-item > div:last-child {
+    margin-top: 10px;
+}
+
+/* 댓글 작성 폼 - 입력창과 버튼을 한 줄로 배치 */
+.custom-container form {
+    display: flex;
+    margin-top: 15px;
+}
+
+/* textarea를 오른쪽 끝까지 확장 */
+.custom-container form textarea {
+    flex: 1; /* 입력창이 가로 공간을 꽉 채우도록 */
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: none;
+    margin-right: 10px;
+}
+
+/* 댓글 버튼을 오른쪽 끝에 배치 */
+.custom-container form button {
+    flex-shrink: 0; /* 버튼 크기 고정 */
+    padding: 6px 12px;
+    background-color: #333;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.custom-container form button:hover {
+    background-color: #555;
+}
+
 
