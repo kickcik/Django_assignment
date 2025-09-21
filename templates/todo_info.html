@@ -24,5 +24,53 @@
             </div>
         </div>
 
-    </div>
+<div class="custom-container">
+    <h2>Comment</h2>
+    <hr>
+    <form method="POST" action="{% url 'todo:comment_create' object.id %}">
+        {% csrf_token %}
+        {{ comment_form.as_div }}
+        <button>댓글달기</button>
+    </form>
+    <ul id="comment_wrapper">
+        {% for comment in page_obj %}
+            <li class="comment-list-item">
+                <div>
+                    <p>{{ comment.author }}</p>
+                    {% if request.user == comment.author or request.user.is_staff %}
+                        <div class="a-group">
+                            <form method="POST" action="{% url 'todo:comment_delete' comment.id %}">
+                                {% csrf_token %}
+                                <button type="button" onclick="modify_view({{ comment.id }})">수정하기</button>
+                                <button type="submit">삭제하기</button>
+                            </form>
+                        </div>
+                    {% endif %}
+                </div>
+                <hr>
+                <div>
+                    <p>{{ comment.content }}</p>
+                    <p>{{ comment.created_at }}</p>
+                </div>
+                <form id="comment_modify_form_{{ comment.id }}" style="display: none" method="POST" action="{% url 'todo:comment_update' comment.id %}">
+                    {% csrf_token %}
+                    {{ comment_form.as_p }}
+                    <button>수정하기</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    {% include 'pagination.html' with fragment='comment_wrapper' %}
+</div>
+</div>
+    <script>
+        function modify_view(commentId) {
+            const modifyForm = document.getElementById(`comment_modify_form_${commentId}`);
+            if (modifyForm.style.display === "none") {
+                modifyForm.style.display = ""
+            } else if (modifyForm.style.display === "") {
+                modifyForm.style.display = "none"
+            }
+        }
+    </script>
 {% endblock %}
