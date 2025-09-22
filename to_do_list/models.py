@@ -3,7 +3,6 @@ from pathlib import Path
 
 from PIL import Image
 from django.contrib.auth.models import User
-from django.db import models
 
 from django.db import models
 from django.urls import reverse
@@ -44,7 +43,7 @@ class ToDoList(models.Model):
         thumbnail_extension = image_path.suffix
         thumbnail_filename = f'{thumbnail_name}_thumb{thumbnail_extension}'
 
-        if thumbnail_extension in ['.jpg', 'jpeg']:
+        if thumbnail_extension in ['.jpg', '.jpeg']:
             file_type = 'JPEG'
         elif thumbnail_extension == '.gif':
             file_type = 'GIF'
