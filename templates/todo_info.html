@@ -28,9 +28,11 @@
     <h2>Comment</h2>
     <hr>
     <form method="POST" action="{% url 'todo:comment_create' object.id %}">
-        {% csrf_token %}
-        {{ comment_form.as_div }}
-        <button>댓글달기</button>
+        <div style=" text-align: right; display: flex" >
+            {% csrf_token %}
+            {{ comment_form }}
+            <button>댓글달기</button>
+        </div>
     </form>
     <ul id="comment_wrapper">
         {% for comment in page_obj %}
