@@ -42,7 +42,7 @@ def todo_create(request):
         return redirect(reverse('todo_info', kwargs={'todo_id':todo.id}))
     context = {'form': form}
 
-    return render(request, 'todo_create.html', context)
+    return render(request, 'todo_form.html', context)
 
 @login_required
 def todo_update(request, todo_id):
@@ -58,7 +58,7 @@ def todo_update(request, todo_id):
         'todo': todo,
         'form': form
     }
-    return render(request, 'todo_update.html', context)
+    return render(request, 'todo_form.html', context)
 
 @login_required
 @require_http_methods(['POST'])
