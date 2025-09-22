@@ -32,6 +32,10 @@ h1 {
     color: #555;
 }
 
+label{
+    display: block;
+    text-align: left;
+}
 /* 버튼 컨테이너 */
 .btn-container {
     display: flex;
@@ -160,6 +164,10 @@ h1 {
 
 .a-group button[type="button"]:hover {
     background-color: #0056b3;
+}
+
+.a-group button {
+    margin-right: 5px;
 }
 
 .a-group button[type="submit"] {
