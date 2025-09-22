@@ -51,7 +51,7 @@ class TodoListInfoView(DetailView):
 
 class TodoListCreateView(LoginRequiredMixin,CreateView):
     model = ToDoList
-    template_name = 'todo_create.html'
+    template_name = 'todo_form.html'
     form_class = TodoForm
 
     def form_valid(self, form):
@@ -64,9 +64,15 @@ class TodoListCreateView(LoginRequiredMixin,CreateView):
     def get_success_url(self):
         return reverse_lazy('todo:info', kwargs={'pk': self.object.id})
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['sub_title'] = '작성'
+        context['btn_name'] = '생성'
+        return context
+
 class TodoListUpdateView(LoginRequiredMixin,UpdateView):
     model = ToDoList
-    template_name = 'todo_update.html'
+    template_name = 'todo_form.html'
     form_class = TodoForm
 
     def get_queryset(self):
