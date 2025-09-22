@@ -10,9 +10,18 @@
         <div class="btn-container">
             <a href="{% url 'todo:create' %}" class="btn-create">작성</a>
         </div>
-        <ul>
+        <ul class="todo-list">
             {% for todo in object_list %}
-                <li><a href="{% url 'todo:info' todo.id %}">{{ todo.title }}</a></li>
+            <li class="todo-item">
+                <a href="{% url 'todo:info' todo.id %}">
+                    {% if todo.get_thumbnail_image_url %}
+                        <img src="{{ todo.get_thumbnail_image_url }}" alt="{{ todo.title }}" class="image">
+                    {% endif %}
+                    <div class="todo-content">
+                        {{ todo.title }}
+                    </div>
+                </a>
+            </li>
             {% endfor %}
         </ul>
     {% else %}
