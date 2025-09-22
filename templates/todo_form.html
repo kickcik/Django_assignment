@@ -12,11 +12,17 @@
 </head>
 <body>
 {% block content %}
-<h1>투두 작성</h1>
-<form method="post">
+<h1>투두 {{ sub_title }}</h1>
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button>생성</button>
+    <button class="btn btn-primary">
+        {% if btn_name %}
+            {{ btn_name }}
+        {% else %}
+            저장
+        {% endif %}
+    </button>
 </form>
 {% endblock %}
 </body>
