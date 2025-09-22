@@ -55,6 +55,7 @@ class TodoListCreateView(LoginRequiredMixin,CreateView):
     form_class = TodoForm
 
     def form_valid(self, form):
+        print('이미지: ', self.request.FILES.get("image"))
         self.object = form.save(commit=False)
         self.object.author = self.request.user
         self.object.save()

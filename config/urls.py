@@ -32,4 +32,7 @@ urlpatterns = [
     path('accounts/signup', users_views.sign_up, name='signup'),
     path('accounts/login', users_views.login, name='login'),
 
+    #summernote
+    path('summnernote/', include('django_summernote.urls')),
+
 ]

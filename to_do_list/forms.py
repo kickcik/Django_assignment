@@ -1,4 +1,5 @@
 from django import forms
+from django_summernote.widgets import SummernoteWidget
 
 from to_do_list.models import ToDoList, Comment
 
@@ -6,10 +7,10 @@ from to_do_list.models import ToDoList, Comment
 class TodoForm(forms.ModelForm):
     class Meta:
         model = ToDoList
-        fields = ('title', 'description', 'start_date', 'end_date')
+        fields = ('title', 'image', 'description', 'start_date', 'end_date',)
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'description': SummernoteWidget(),
             'start_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
             'end_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
         }

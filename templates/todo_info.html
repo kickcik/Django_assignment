@@ -8,7 +8,7 @@
         <h1>{{ object.id }}번 리스트</h1>
         <div class="info">
             <p><span class="label">제목 :</span> {{ object.title }}</p>
-            <p><span class="label">내용 :</span> {{ object.description }}</p>
+            <p><span class="label">내용 :</span> {{ object.description | safe}}</p>
             <p><span class="label">시작일 :</span> {{ object.start_date }}</p>
             <p><span class="label">종료일 :</span> {{ object.end_date }}</p>
         </div>
