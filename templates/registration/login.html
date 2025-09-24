@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,11 +16,11 @@
             <h2>Login</h2>
             <form method="POST">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {% include 'include/form.html' %}
                 <button type="submit" class="login-button">Login</button>
                 <span>
                     아직 회원이 아니라면 회원가입을 진행해주세요.
-                    <a href="{% url 'signup' %}">회원가입</a>
+                    <a href="{% url 'cbv_signup' %}">회원가입</a>
                 </span>
             </form>
         </div>
