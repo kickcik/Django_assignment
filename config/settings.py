@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import json
 from pathlib import Path
 
 from django.contrib.auth import login
@@ -17,12 +17,15 @@ from django.contrib.auth import login
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+with open(BASE_DIR / '.config_secret' / 'secret.json') as f:
+    config_secret_str = f.read()
 
+SECRET = json.loads(config_secret_str)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-945xap=mxg)lniux-q@way8!@(e8!a3_y_kgbj$9vjn12rljjp'
+SECRET_KEY = SECRET['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -142,9 +145,21 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # login
-LOGIN_REDIRECT_URL = '/todo/'
-LOGOUT_REDIRECT_URL = '/accounts/login/'
-LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/cbv/todo/'
+LOGOUT_REDIRECT_URL = '/cbv/todo/'
+LOGIN_URL = '/users/login/'
+
+
+# auth
+AUTH_USER_MODEL = 'users.User'
+
+# Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.naver.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = SECRET['email']['user']
+EMAIL_HOST_PASSWORD = SECRET['email']['password']
 
 #summernote
 SUMMERNOTE_CONFIG = {
