@@ -2,11 +2,12 @@ from io import BytesIO
 from pathlib import Path
 
 from PIL import Image
-from django.contrib.auth.models import User
+from django.conf import settings
 
 from django.db import models
 from django.urls import reverse
 
+User = settings.AUTH_USER_MODEL
 
 class ToDoList(models.Model):
     title = models.CharField(max_length=50)
