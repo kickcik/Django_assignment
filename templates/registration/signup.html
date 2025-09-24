@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
@@ -14,7 +14,7 @@
         <h1>회원가입</h1>
         <form method="POST" class="signup-form">
             {% csrf_token %}
-            {{ form.as_p }}
+            {% include 'include/form.html' %}
             <button type="submit" class="signup-button">Sign Up</button>
         </form>
     </div>
