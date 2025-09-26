@@ -1,19 +1,77 @@
-select_related: 외래키의 것을 가져오는 것, join을 사용한다.
-prefetch_related: 역참조관계의 데이터를 파이썬이 알아서 가져온다.
+[select_related]
+- 외래키의 것을 가져오는 것, join을 사용한다.
 
-swiper.js를 사용하려 이미지를 슬라이드 처리, 페이지네이션 적용
+[prefetch_related]
+- 역참조관계의 데이터를 파이썬이 알아서 가져온다.
 
-font-awesome: 무료로 아이콘을 사용하게 해준다.
+[swiper.js]
+- 이미지를 슬라이드 처리, 페이지네이션 적용
 
-linebreaksbr: \n을 <br> 태그로 바꿔준다.
+[font-awesome]
+- 무료로 아이콘을 사용하게 해준다.
 
-Waypoints: 스크롤 위치를 감지해서 특정 이벤트를 발생시키는 라이브러리, 무한 스크롤 구현에 용이함.
+[linebreaksbr]
+- \n을 <br> 태그로 바꿔준다.
 
-migration roll back:
+[Waypoints]
+- 스크롤 위치를 감지해서 특정 이벤트를 발생시키는 라이브러리, 무한 스크롤 구현에 용이함.
+
+[migration roll back]
     1. python manage.py showmigrations => 마이그레이션 현황 시각화.
     2. python manage.py (앱 이름) (마이그레이션 넘버) => 해당하는 마이그레이션 넘버로 롤백.
         -> 마이그레이션 초기화: python manage.py (앱 이름) zero
 
-M:N 관계 외래키 설정: ManyToManyField 사용하기
+[M:N 관계 외래키 설정]
+- ManyToManyField 사용하기
 
-jquery.formset: Django의 Formset 기능을 클라이언트에서 동적으로 추가하거나 삭제하는 기능 제공
+[jquery.formset]
+- Django의 Formset 기능을 클라이언트에서 동적으로 추가하거나 삭제하는 기능 제공
+
+[@receiver]
+# 시그널프레임워크
+- 시그널을 수신하여 특정한 작업을 수행하는 함수를 정의
+- Django에서 자동으로 특정 이벤트에 대한 호출을 처리
+
+    [신호(signal)]
+        - Django에서 특정 이벤트가 발생했을 때 이를 알리는 메커니즘
+        -> ex) 모델 인스턴스가 저장되거나 삭제될 때 신호를 발송
+
+    [사용법]
+    1. 정의된 함수 위에 @receiver를 함수 위에 붙인다.
+    2. 해당 함수가 시그널 핸들러로 등록된다.
+
+    [신호의 종류]
+    1. pre_save: 모델 인스턴스가 저장되기 전에 발생
+    2. post_save: 모델 인스턴스가 저장된 후에 발생
+    3. pre_delete: 모델 인스턴스가 삭제되기 전에 발생
+    4. post_delete: 모델 인스턴스가 삭제된 후에 발생
+
+[LoginRequiredMixin]
+- Django에서 제공
+- 로그인해야만 특정 뷰에 접근할 수 있도록 제한
+- 주로 CBV(Class based View)와 함께 사용
+- FBV(Function Based View)에서는 @login_required 데코레이터 사용
+
+[reverse vs reverse_lazy]
+- reverse: 호출시 바로 URL 생성 및 반환
+- reverse_lazy: 실제로 URL이 필요할 때 반환, 주로 CBV에서 사용
+
+[@register.simple_tag()]
+- 탬플릿 태그 정의시 사용, 주로 커스텀 태그
+- 템플릿 코드의 재사용성 증가를 목적으로 사용
+
+[@csrf_exempt]
+- 기본적으로 작동하는 CSRF 보호를 임시적으로 비활성화
+
+[slug 방식]
+- slug: URL에서 특정 객체를 식별하는 데 사용되는 문자열.
+    ex) https://127.0.0.1:8000/profile/admin(slug의 타겟)
+
+- slug_field: URL에서 사용하는 슬러그 필드가 어떤 모델의 nickname 필드임을 지정.
+    ex) slug_field = 'nickname'
+
+- slug_url_kwarg: URL에서 슬러그 값을 가져오기 위해 사용하는 키워드 인수를 지정.
+    ex) path('profile/<str:slug>', ...) => slug 타겟의 값이 slug_field인 nickname에 매치
+
+[django.contrib.humanize]
+- 내장 앱 중 하나, 템플릿에서 숫자, 날짜 등을 보다 인간친화적인 형식으로 표시하는 데 사용
